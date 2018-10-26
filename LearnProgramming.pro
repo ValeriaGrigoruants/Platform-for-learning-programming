@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -28,19 +29,30 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     lesson.cpp \
-    workbook.cpp
+    workbook.cpp \
+    dialogadddevice.cpp \
+    database.cpp \
+    teacher.cpp
 
 HEADERS += \
         mainwindow.h \
     lesson.h \
-    workbook.h
+    workbook.h \
+    dialogadddevice.h \
+    database.h \
+    teacher.h
 
 FORMS += \
         mainwindow.ui \
     lesson.ui \
-    workbook.ui
+    workbook.ui \
+    dialogadddevice.ui \
+    teacher.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    first

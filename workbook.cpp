@@ -6,19 +6,48 @@ Workbook::Workbook(QWidget *parent) :
     ui(new Ui::Workbook)
 {
     ui->setupUi(this);
-    //Workbook * wb = new Workbook();
-    //wb -> readFile();
 }
-/*
-void Workbook::readFile()
+
+void Workbook::readFile(int number)
 {
-    QFile file("fir.txt");
-    QByteArray data;
-    if (!file.open(QIODevice::ReadOnly))
-        return;
-    data = file.readAll();
-    qDebug() << QString(data);
-}*/
+
+    if (number == 1)
+    {
+        QFile file("C:\\Users\\Valeria\\Documents\\LearnProgramming\\first.txt");
+        if (file.open(QIODevice::ReadOnly))
+        {
+            ui->textBrowser->setText(file.readAll());
+            file.close();
+        }
+    }
+    else if (number == 2)
+    {
+        QFile file("C:\\Users\\Valeria\\Documents\\LearnProgramming\\second.txt");
+        if (file.open(QIODevice::ReadOnly))
+        {
+            ui->textBrowser->setText(file.readAll());
+            file.close();
+        }
+    }
+    else if (number == 3)
+    {
+        QFile file("C:\\Users\\Valeria\\Documents\\LearnProgramming\\third.txt");
+        if (file.open(QIODevice::ReadOnly))
+        {
+            ui->textBrowser->setText(file.readAll());
+            file.close();
+        }
+    }
+    else if (number == 4)
+    {
+        QFile file("C:\\Users\\Valeria\\Documents\\LearnProgramming\\fourth.txt");
+        if (file.open(QIODevice::ReadOnly))
+        {
+            ui->textBrowser->setText(file.readAll());
+            file.close();
+        }
+    }
+}
 
 Workbook::~Workbook()
 {

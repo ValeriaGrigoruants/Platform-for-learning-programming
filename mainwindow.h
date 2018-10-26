@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <lesson.h>
+#include <teacher.h>
 
 namespace Ui {
 class MainWindow;
@@ -22,6 +23,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Lesson *lection;
+    Teacher *teach;
 };
 
 #endif // MAINWINDOW_H

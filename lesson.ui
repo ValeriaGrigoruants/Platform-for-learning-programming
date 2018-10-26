@@ -60,7 +60,7 @@
      <item row="0" column="0">
       <widget class="QPushButton" name="les_1">
        <property name="text">
-        <string>PushButton</string>
+        <string>Array, Part 1</string>
        </property>
       </widget>
      </item>

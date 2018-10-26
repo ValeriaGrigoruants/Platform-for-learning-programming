@@ -25,6 +25,12 @@ private slots:
 
     void on_les_1_clicked();
 
+    void on_les_2_clicked();
+
+    void on_les_3_clicked();
+
+    void on_les_4_clicked();
+
 private:
     Ui::Lesson *ui;
     Workbook * wb1;

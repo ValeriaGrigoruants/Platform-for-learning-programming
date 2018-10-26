@@ -17,8 +17,9 @@ class Workbook : public QDialog
 
 
 public:
-    void readFile();
+
     explicit Workbook(QWidget *parent = nullptr);
+    void readFile(int);
     ~Workbook();
 
 signals:
