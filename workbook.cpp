@@ -6,11 +6,23 @@ Workbook::Workbook(QWidget *parent) :
     ui(new Ui::Workbook)
 {
     ui->setupUi(this);
+    test = new Test();
+    connect(test, &Test::test, this, &Workbook::show);
+}
+
+void Workbook::setNum (int i)
+{
+    num = i;
+}
+
+int Workbook::getNum()
+{
+    return num;
 }
 
 void Workbook::readFile(int number)
 {
-
+    setNum(number);
     if (number == 1)
     {
         QFile file("C:\\Users\\Valeria\\Documents\\LearnProgramming\\first.txt");
@@ -58,4 +70,11 @@ void Workbook::on_back_clicked()
 {
     this -> close();
     emit lessons();
+}
+
+void Workbook::on_test_clicked()
+{
+    this -> close();
+    test -> show();
+    test -> readTest(getNum());
 }

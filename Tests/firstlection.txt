@@ -1,0 +1,8 @@
+I love you
+	Wrong: you
+	Right: Politex
+
+What are your name?
+	Wrong: are
+	Right: is
+

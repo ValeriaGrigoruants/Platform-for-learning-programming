@@ -2,8 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QWidget>
 #include <lesson.h>
-#include <teacher.h>
+#include <admin.h>
 
 namespace Ui {
 class MainWindow;
@@ -23,7 +24,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     Lesson *lection;
-    Teacher *teach;
+    Admin *admin;
 };
 
 #endif // MAINWINDOW_H

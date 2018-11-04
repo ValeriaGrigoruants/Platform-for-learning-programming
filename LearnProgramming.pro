@@ -30,24 +30,28 @@ SOURCES += \
         mainwindow.cpp \
     lesson.cpp \
     workbook.cpp \
-    dialogadddevice.cpp \
-    database.cpp \
-    teacher.cpp
+    admin.cpp \
+    addtest.cpp \
+    mistakeplace.cpp \
+    test.cpp
 
 HEADERS += \
         mainwindow.h \
     lesson.h \
     workbook.h \
-    dialogadddevice.h \
-    database.h \
-    teacher.h
+    admin.h \
+    addtest.h \
+    mistakeplace.h \
+    test.h
 
 FORMS += \
         mainwindow.ui \
     lesson.ui \
     workbook.ui \
-    dialogadddevice.ui \
-    teacher.ui
+    admin.ui \
+    addtest.ui \
+    mistakeplace.ui \
+    test.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -9,8 +9,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     lection = new Lesson();
     connect(lection, &Lesson::firstWindow, this, &MainWindow::show);
-    teach = new Teacher();
-    connect(teach, &Teacher::firstWindow, this, &MainWindow::show);
+    admin = new Admin();
+    connect (admin, &Admin::firstWindow, this, &MainWindow::show);
 }
 
 MainWindow::~MainWindow()
@@ -21,14 +21,35 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_Start_clicked()
 {
-    if (ui -> surname -> text() != "Vania" && ui -> surname -> text() != "Lera" && ui -> surname -> text() != "admin")
+    QFile file("C:\\Users\\Valeria\\Documents\\LearnProgramming\\students.txt");
+    bool all_right = false;
+    QString sur = ui -> surname -> text() + " " + ui -> password -> text();
+    if ((file.exists())&&(file.open(QIODevice::ReadOnly)))
+    {
+        QString str="";
+        while(!file.atEnd())
+        {
+            str = file.readLine();
+            QString firstWord = str.split(" ").at(0);
+            QString sec = str.split("\r").at(0);
+            //qDebug() << "there";
+            //qDebug() << sec << endl;
+            if (sec == sur)
+            {
+                all_right = true;
+                break;
+            }
+        }
+        file.close();
+    }
+    if (ui -> surname -> text() == "admin")
+    {
+        admin -> show();
+        this -> close();
+    }
+    else if (!all_right)
     {
         QMessageBox::information(this, "False", "You can't open this lessons!");
-    }
-    else if (ui -> surname -> text() == "admin")
-    {
-        lection -> show();
-        this -> close();
     }
     else
     {

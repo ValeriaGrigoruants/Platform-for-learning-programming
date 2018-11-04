@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QByteArray>
 #include <QString>
+#include <test.h>
 
 namespace Ui {
 class Workbook;
@@ -28,8 +29,14 @@ signals:
 private slots:
     void on_back_clicked();
 
+    void on_test_clicked();
+
 private:
+    int num;
+    void setNum(int);
+    int getNum();
     Ui::Workbook *ui;
+    Test * test;
 };
 
 #endif // WORKBOOK_H
