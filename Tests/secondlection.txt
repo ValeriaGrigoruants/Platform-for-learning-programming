@@ -1,0 +1,8 @@
+It is good test
+	Wrong: good
+	Right: the best
+
+Tests
+	Wrong: s
+	Right: t
+

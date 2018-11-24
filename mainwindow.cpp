@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(lection, &Lesson::firstWindow, this, &MainWindow::show);
     admin = new Admin();
     connect (admin, &Admin::firstWindow, this, &MainWindow::show);
+    new_user = new Registration();
+    connect(new_user, &Registration::autorization, this, &MainWindow::show);
 }
 
 MainWindow::~MainWindow()
@@ -21,26 +23,27 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_Start_clicked()
 {
-    QFile file("C:\\Users\\Valeria\\Documents\\LearnProgramming\\students.txt");
+    QFile file("C:\\Users\\Valeria\\Documents\\LearnProgramming\\users.txt");
     bool all_right = false;
     QString sur = ui -> surname -> text() + " " + ui -> password -> text();
+    QString firstWord;
+    QCryptographicHash hasher(QCryptographicHash::Keccak_256);
+    hasher.addData(sur.toUtf8());
     if ((file.exists())&&(file.open(QIODevice::ReadOnly)))
     {
-        QString str="";
-        while(!file.atEnd())
+        QString s;
+        QTextStream t(&file);
+        while(!t.atEnd())
         {
-            str = file.readLine();
-            QString firstWord = str.split(" ").at(0);
-            QString sec = str.split("\r").at(0);
-            //qDebug() << "there";
-            //qDebug() << sec << endl;
-            if (sec == sur)
+            QString line = t.readLine();
+            if(line.contains(hasher.result().toBase64()))
             {
                 all_right = true;
+                firstWord = line.split(": ").at(0);
                 break;
             }
         }
-        file.close();
+
     }
     if (ui -> surname -> text() == "admin")
     {
@@ -53,7 +56,38 @@ void MainWindow::on_Start_clicked()
     }
     else
     {
-        lection -> show();
+        int count = 0;
+        QFile file ("C:\\Users\\Valeria\\Documents\\LearnProgramming\\Results\\" + firstWord + ".txt");
+        if (file.open(QIODevice::ReadOnly))
+        {
+            while (!file.atEnd())
+            {
+                if (file.readLine().size() > 3)
+                    count ++;
+            }
+        }
+        if (count < 4)
+        {
+            lection -> setUser(firstWord);
+            lection -> show();
+
+        }
+        else
+        {
+            total = new Total();
+            total ->setUser(firstWord);
+            total ->makeTable();
+            total ->show();
+            this ->close();
+        }
         this -> close();
     }
+    ui -> surname -> clear();
+    ui -> password -> clear();
+}
+
+void MainWindow::on_registration_clicked()
+{
+    this -> close();
+    new_user -> show();
 }

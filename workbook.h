@@ -21,6 +21,8 @@ public:
 
     explicit Workbook(QWidget *parent = nullptr);
     void readFile(int);
+    void setUser(QString);
+    QString getUser();
     ~Workbook();
 
 signals:
@@ -35,6 +37,7 @@ private:
     int num;
     void setNum(int);
     int getNum();
+    QString user;
     Ui::Workbook *ui;
     Test * test;
 };

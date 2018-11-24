@@ -2,7 +2,10 @@
 #define ADMIN_H
 
 #include <QDialog>
-#include <addtest.h>
+#include <addstudent.h>
+#include <mistakeplace.h>
+#include <fixlecture.h>
+#include <allresults.h>
 
 namespace Ui {
 class Admin;
@@ -17,6 +20,7 @@ signals:
 
 public:
     explicit Admin(QWidget *parent = nullptr);
+
     ~Admin();
 
 private slots:
@@ -24,9 +28,22 @@ private slots:
 
     void on_test_clicked();
 
+    void on_student_clicked();
+
+    void on_edit_clicked();
+
+    void on_results_clicked();
+
 private:
     Ui::Admin *ui;
-    AddTest *newtest;
+
+    MistakePlace *newtest;
+
+    AddStudent *new_student;
+
+    FixLecture *fix_lecture;
+
+    AllResults *result;
 };
 
 #endif // ADMIN_H

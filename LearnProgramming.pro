@@ -6,6 +6,7 @@
 
 QT       += core gui
 QT       += sql
+QT       += printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -31,27 +32,42 @@ SOURCES += \
     lesson.cpp \
     workbook.cpp \
     admin.cpp \
-    addtest.cpp \
     mistakeplace.cpp \
-    test.cpp
+    test.cpp \
+    fixlecture.cpp \
+    registration.cpp \
+    addstudent.cpp \
+    allresults.cpp \
+    personalresults.cpp \
+    total.cpp
 
 HEADERS += \
         mainwindow.h \
     lesson.h \
     workbook.h \
     admin.h \
-    addtest.h \
     mistakeplace.h \
-    test.h
+    test.h \
+    fixlecture.h \
+    registration.h \
+    addstudent.h \
+    allresults.h \
+    personalresults.h \
+    total.h
 
 FORMS += \
         mainwindow.ui \
     lesson.ui \
     workbook.ui \
     admin.ui \
-    addtest.ui \
     mistakeplace.ui \
-    test.ui
+    test.ui \
+    fixlecture.ui \
+    registration.ui \
+    addstudent.ui \
+    allresults.ui \
+    personalresults.ui \
+    total.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

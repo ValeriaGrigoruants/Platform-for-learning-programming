@@ -6,6 +6,7 @@ Test::Test(QWidget *parent) :
     ui(new Ui::Test)
 {
     ui->setupUi(this);
+    ui -> back -> hide();
 
 }
 
@@ -44,15 +45,32 @@ void Test::readTest(int number)
             QString fir = file.readLine();
             QString sec = file.readLine();
             answer = fir.split("\r").at(0) + sec.split("\r").at(0);
+            all++;
             counter += 4;
         }
         if (answer == "")
         {
-            ui -> wrong ->close();
-            ui -> right -> close();
-            ui -> label_2 -> close();
-            ui -> label_3 -> close();
+            ui -> wrong ->hide();
+            ui -> right -> hide();
+            ui -> label_2 -> hide();
+            ui -> label_3 -> hide();
+            ui -> next -> hide();
+            ui -> back ->show();
+            mark = 100 * mark / all;
             ui -> question ->setText("<h3 align = \"center\">Your mark is: " + QString::number(mark) + "</h3>");
+            QString name = getUser() + ".txt";
+            QFile student ("C:\\Users\\Valeria\\Documents\\LearnProgramming\\Results\\" + name);
+            if (student.open(QIODevice::Append))
+            {
+                QString temp = "Lecture " + QString::number(number) + " total mark is " + QString::number(mark) + "\r\n";
+                std::string str = temp.toStdString();
+                const char* p = str.c_str();
+                student.write(p);
+                student.close();
+            }
+            mark = 0;
+            counter = 0;
+            all = 0;
         }
         file.close();
     }
@@ -73,4 +91,26 @@ void Test::on_next_clicked()
     ui -> wrong -> clear();
     ui ->right -> clear();
     readTest (num);
+}
+
+void Test::setUser(QString student)
+{
+    user = student;
+}
+
+QString Test::getUser()
+{
+    return user;
+}
+
+void Test::on_back_clicked()
+{
+    ui -> wrong ->show();
+    ui -> right -> show();
+    ui -> label_2 -> show();
+    ui -> label_3 -> show();
+    ui -> next -> show();
+    this -> close();
+    emit test();
+    ui ->back ->hide();
 }

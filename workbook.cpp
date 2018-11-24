@@ -75,6 +75,17 @@ void Workbook::on_back_clicked()
 void Workbook::on_test_clicked()
 {
     this -> close();
+    test -> setUser(getUser());
     test -> show();
     test -> readTest(getNum());
+}
+
+void Workbook::setUser(QString student)
+{
+    user = student;
+}
+
+QString Workbook::getUser()
+{
+    return user;
 }
