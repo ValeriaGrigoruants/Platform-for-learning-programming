@@ -39,7 +39,8 @@ SOURCES += \
     addstudent.cpp \
     allresults.cpp \
     personalresults.cpp \
-    total.cpp
+    total.cpp \
+    deletetest.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -53,7 +54,8 @@ HEADERS += \
     addstudent.h \
     allresults.h \
     personalresults.h \
-    total.h
+    total.h \
+    deletetest.h
 
 FORMS += \
         mainwindow.ui \
@@ -67,7 +69,8 @@ FORMS += \
     addstudent.ui \
     allresults.ui \
     personalresults.ui \
-    total.ui
+    total.ui \
+    deletetest.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

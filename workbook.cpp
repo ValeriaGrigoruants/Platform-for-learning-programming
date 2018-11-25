@@ -25,7 +25,7 @@ void Workbook::readFile(int number)
     setNum(number);
     if (number == 1)
     {
-        QFile file("C:\\Users\\Valeria\\Documents\\LearnProgramming\\first.txt");
+        QFile file("C:\\Users\\Valeria\\Documents\\LearnProgramming\\Lectures\\first.txt");
         if (file.open(QIODevice::ReadOnly))
         {
             ui->textBrowser->setText(file.readAll());
@@ -34,7 +34,7 @@ void Workbook::readFile(int number)
     }
     else if (number == 2)
     {
-        QFile file("C:\\Users\\Valeria\\Documents\\LearnProgramming\\second.txt");
+        QFile file("C:\\Users\\Valeria\\Documents\\LearnProgramming\\Lectures\\second.txt");
         if (file.open(QIODevice::ReadOnly))
         {
             ui->textBrowser->setText(file.readAll());
@@ -43,7 +43,7 @@ void Workbook::readFile(int number)
     }
     else if (number == 3)
     {
-        QFile file("C:\\Users\\Valeria\\Documents\\LearnProgramming\\third.txt");
+        QFile file("C:\\Users\\Valeria\\Documents\\LearnProgramming\\Lectures\\third.txt");
         if (file.open(QIODevice::ReadOnly))
         {
             ui->textBrowser->setText(file.readAll());
@@ -52,7 +52,7 @@ void Workbook::readFile(int number)
     }
     else if (number == 4)
     {
-        QFile file("C:\\Users\\Valeria\\Documents\\LearnProgramming\\fourth.txt");
+        QFile file("C:\\Users\\Valeria\\Documents\\LearnProgramming\\Lectures\\fourth.txt");
         if (file.open(QIODevice::ReadOnly))
         {
             ui->textBrowser->setText(file.readAll());

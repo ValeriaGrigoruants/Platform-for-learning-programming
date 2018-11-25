@@ -54,3 +54,12 @@ void Admin::on_results_clicked()
     this ->close();
     result ->show();
 }
+
+void Admin::on_delete_test_clicked()
+{
+    del_test = new DeleteTest();
+    connect (del_test, &DeleteTest::admin, this, &Admin::show);
+    this ->close();
+    del_test ->showTest();
+    del_test ->show();
+}

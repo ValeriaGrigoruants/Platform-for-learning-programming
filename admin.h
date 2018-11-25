@@ -6,6 +6,7 @@
 #include <mistakeplace.h>
 #include <fixlecture.h>
 #include <allresults.h>
+#include <deletetest.h>
 
 namespace Ui {
 class Admin;
@@ -34,6 +35,8 @@ private slots:
 
     void on_results_clicked();
 
+    void on_delete_test_clicked();
+
 private:
     Ui::Admin *ui;
 
@@ -44,6 +47,8 @@ private:
     FixLecture *fix_lecture;
 
     AllResults *result;
+
+    DeleteTest *del_test;
 };
 
 #endif // ADMIN_H

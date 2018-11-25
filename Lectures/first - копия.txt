@@ -1,5 +1,5 @@
-<h1>Arrays</h1>
-<section id="arrays">
+<h3>Arrays</h3>
+
 An array is a series of elements of the same type placed in contiguous memory locations that can be individually referenced by adding an index to a unique identifier.<br>
 <br>
 That means that, for example, five values of type <code>int</code> can be declared as an array without having to declare 5 different variables (each with its own identifier). Instead, using an array, the five <code>int</code> values are stored in contiguous memory locations, and all five can be accessed using the same identifier, with the proper index.<br>
@@ -25,5 +25,5 @@ Therefore, the <code>foo</code> array, with five elements of type <code>int</cod
 <br>
 <br>
 NOTE: The <code>elements</code> field within square brackets <code>[]</code>, representing the number of elements in the array, must be a <i>constant expression</i>, since arrays are blocks of static memory whose size must be determined at compile time, before the program runs.<br>
-</section>
+
 <br>
