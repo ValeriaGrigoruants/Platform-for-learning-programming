@@ -1,8 +1,8 @@
-It is good test
-	Wrong: good
-	Right: the best
+But the elements in an array can't be explicitly initialized to specific values when it is declared.
+	Wrong: can't
+	Right: can
 
-Tests
-	Wrong: s
-	Right: t
+By default, regular arrays of local scope are left initialized.
+	Wrong: initialized
+	Right: uninitialized
 

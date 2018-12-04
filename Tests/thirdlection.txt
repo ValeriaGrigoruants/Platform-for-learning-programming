@@ -1,8 +1,4 @@
-What are your name?
-	Wrong: are
-	Right: is
-
-333
+The following statement stores the value 75 in the third element of foo foo[3] = 75
 	Wrong: 3
-	Right: 4
+	Right: 2
 

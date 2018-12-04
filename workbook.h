@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QFile>
+#include <QMessageBox>
 #include <QDebug>
 #include <QByteArray>
 #include <QString>

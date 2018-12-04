@@ -22,8 +22,3 @@ Therefore, the <code>foo</code> array, with five elements of type <code>int</cod
 <br>
 <div class="auto"><table class="snippet"><tr><td class="rownum"><pre><code>&nbsp;</code></pre></td>
 <td class="source"><pre><code><var>int</var> foo [5];</code></pre></td><td class="C_btnholder"></td></tr></table></div>
-<br>
-<br>
-NOTE: The <code>elements</code> field within square brackets <code>[]</code>, representing the number of elements in the array, must be a <i>constant expression</i>, since arrays are blocks of static memory whose size must be determined at compile time, before the program runs.<br>
-
-<br>

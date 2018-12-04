@@ -1,8 +1,8 @@
-I love you
-	Wrong: you
-	Right: Politex
+An array is a series of elements of different type.
+	Wrong: different
+	Right: the same
 
-What are your name?
-	Wrong: are
-	Right: is
+The index of the new element in arrays is 1
+	Wrong: 1
+	Right: 0
 

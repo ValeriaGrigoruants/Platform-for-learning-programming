@@ -6,6 +6,11 @@ Workbook::Workbook(QWidget *parent) :
     ui(new Ui::Workbook)
 {
     ui->setupUi(this);
+    QPixmap bkgnd("C:\\Users\\Valeria\\Documents\\LearnProgramming\\back.jpg");
+        bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+        QPalette palette;
+        palette.setBrush(QPalette::Background, bkgnd);
+        this->setPalette(palette);
     test = new Test();
     connect(test, &Test::test, this, &Workbook::show);
 }
@@ -74,10 +79,27 @@ void Workbook::on_back_clicked()
 
 void Workbook::on_test_clicked()
 {
-    this -> close();
-    test -> setUser(getUser());
-    test -> show();
-    test -> readTest(getNum());
+    int temp = 0;
+    QFile file ("C:\\Users\\Valeria\\Documents\\LearnProgramming\\Results\\" + getUser() + ".txt");
+    if (file.open(QIODevice::ReadOnly))
+    {
+        while (!file.atEnd())
+        {
+            if (file.readLine().size() > 6)
+                temp++;
+        }
+    }
+    if (temp == getNum() - 1)
+    {
+        this -> close();
+        test -> setUser(getUser());
+        test -> show();
+        test -> readTest(getNum());
+    }
+    else
+    {
+        QMessageBox::information(this, "System", "You have already passed this test!");
+    }
 }
 
 void Workbook::setUser(QString student)

@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QWidget>
+#include <QPixmap>
 #include <lesson.h>
 #include <admin.h>
 #include <registration.h>

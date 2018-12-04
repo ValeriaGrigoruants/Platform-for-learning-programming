@@ -6,6 +6,11 @@ Test::Test(QWidget *parent) :
     ui(new Ui::Test)
 {
     ui->setupUi(this);
+    QPixmap bkgnd("C:\\Users\\Valeria\\Documents\\LearnProgramming\\back.jpg");
+        bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+        QPalette palette;
+        palette.setBrush(QPalette::Background, bkgnd);
+        this->setPalette(palette);
     ui -> back -> hide();
 
 }
@@ -41,7 +46,7 @@ void Test::readTest(int number)
         if (!file.atEnd())
         {
 
-            ui -> question ->setText("<h3 align = \"center\">" + file.readLine() + "</h3>");
+            ui -> question ->setText("<font color = \"#ffffff\"><h1 align = \"center\">" + file.readLine() + "</h1></font>");
             QString fir = file.readLine();
             QString sec = file.readLine();
             answer = fir.split("\r").at(0) + sec.split("\r").at(0);
@@ -57,7 +62,7 @@ void Test::readTest(int number)
             ui -> next -> hide();
             ui -> back ->show();
             mark = 100 * mark / all;
-            ui -> question ->setText("<h3 align = \"center\">Your mark is: " + QString::number(mark) + "</h3>");
+            ui -> question ->setText("<font color = \"#ffffff\"><h1 align = \"center\">Your mark is: " + QString::number(mark) + "</h1></font>");
             QString name = getUser() + ".txt";
             QFile student ("C:\\Users\\Valeria\\Documents\\LearnProgramming\\Results\\" + name);
             if (student.open(QIODevice::Append))

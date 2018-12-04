@@ -6,6 +6,11 @@ MistakePlace::MistakePlace(QWidget *parent) :
     ui(new Ui::MistakePlace)
 {
     ui->setupUi(this);
+    QPixmap bkgnd("C:\\Users\\Valeria\\Documents\\LearnProgramming\\back.jpg");
+        bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+        QPalette palette;
+        palette.setBrush(QPalette::Background, bkgnd);
+        this->setPalette(palette);
 }
 
 MistakePlace::~MistakePlace()

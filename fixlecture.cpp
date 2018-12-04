@@ -6,6 +6,11 @@ FixLecture::FixLecture(QWidget *parent) :
     ui(new Ui::FixLecture)
 {
     ui->setupUi(this);
+    QPixmap bkgnd("C:\\Users\\Valeria\\Documents\\LearnProgramming\\back.jpg");
+        bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+        QPalette palette;
+        palette.setBrush(QPalette::Background, bkgnd);
+        this->setPalette(palette);
     QFile file;
     file.setFileName("C:\\Users\\Valeria\\Documents\\LearnProgramming\\Lectures\\first.txt");
     if (file.open(QIODevice::ReadOnly))

@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <allresults.h>
 #include <QWidget>
+#include <QMessageBox>
 #include <workbook.h>
 #include <test.h>
 #include <personalresults.h>

@@ -6,6 +6,11 @@ AllResults::AllResults(QWidget *parent) :
     ui(new Ui::AllResults)
 {
     ui->setupUi(this);
+    QPixmap bkgnd("C:\\Users\\Valeria\\Documents\\LearnProgramming\\back.jpg");
+        bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+        QPalette palette;
+        palette.setBrush(QPalette::Background, bkgnd);
+        this->setPalette(palette);
     QMap <QString, double> res;
         QFile file ("C:\\Users\\Valeria\\Documents\\LearnProgramming\\users.txt");
         if (file.open(QIODevice::ReadOnly))
@@ -55,6 +60,13 @@ AllResults::AllResults(QWidget *parent) :
         }
         ui ->tableRes ->setRowCount(res.size());
         ui ->tableRes ->setColumnCount(2);
+        ui ->tableRes ->setColumnWidth(0, 428);
+        ui ->tableRes ->setColumnWidth(1, 427);
+        for (int i = 0; i < res.size(); ++i)
+        {
+            ui ->tableRes ->setRowHeight(i, 565 / res.size());
+        }
+        ui ->tableRes ->setHorizontalHeaderLabels(QStringList() << "The Student" << "Total mark");
         int count = 0;
         for (auto x : res.toStdMap())
         {

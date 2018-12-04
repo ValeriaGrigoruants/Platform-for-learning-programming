@@ -6,6 +6,11 @@ DeleteTest::DeleteTest(QWidget *parent) :
     ui(new Ui::DeleteTest)
 {
     ui->setupUi(this);
+    QPixmap bkgnd("C:\\Users\\Valeria\\Documents\\LearnProgramming\\back.jpg");
+        bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+        QPalette palette;
+        palette.setBrush(QPalette::Background, bkgnd);
+        this->setPalette(palette);
 }
 
 DeleteTest::~DeleteTest()

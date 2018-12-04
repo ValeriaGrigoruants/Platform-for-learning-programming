@@ -6,6 +6,11 @@ PersonalResults::PersonalResults(QWidget *parent) :
     ui(new Ui::PersonalResults)
 {
     ui->setupUi(this);
+    QPixmap bkgnd("C:\\Users\\Valeria\\Documents\\LearnProgramming\\back.jpg");
+        bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+        QPalette palette;
+        palette.setBrush(QPalette::Background, bkgnd);
+        this->setPalette(palette);
 
 }
 
@@ -29,10 +34,20 @@ void PersonalResults::makeTable()
 
     ui ->tableRes ->setRowCount(4);
     ui ->tableRes ->setColumnCount(2);
+    ui ->tableRes ->setColumnWidth(0, 433);
+    ui ->tableRes ->setColumnWidth(1, 432);
+    ui ->tableRes ->setRowHeight(0, 134);
+    ui ->tableRes ->setRowHeight(1, 135);
+    ui ->tableRes ->setRowHeight(2, 134);
+    ui ->tableRes ->setRowHeight(3, 135);
+    ui ->tableRes ->setHorizontalHeaderLabels(QStringList() << "The lecture" << "Your mark");
+
+
 
     for (int i = 1; i < 5; ++i)
     {
         QTableWidgetItem * item = new QTableWidgetItem ("Lecture " + tr("%1").arg(i));
+        item ->setTextAlignment(Qt::AlignCenter);
         ui ->tableRes ->setItem(i - 1, 0, item);
     }
 
@@ -55,12 +70,14 @@ void PersonalResults::makeTable()
                 t *= 10;
             }
             QTableWidgetItem * item = new QTableWidgetItem (tr("%1").arg(mark));
+            item ->setTextAlignment(Qt::AlignCenter);
             ui ->tableRes ->setItem(count, 1, item);
             count ++;
         }
         while (count < 5)
         {
             QTableWidgetItem * item = new QTableWidgetItem (tr("%1").arg(0));
+            item ->setTextAlignment(Qt::AlignCenter);
             ui ->tableRes ->setItem(count, 1, item);
             count++;
         }

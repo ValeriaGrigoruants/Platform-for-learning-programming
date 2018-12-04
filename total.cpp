@@ -6,6 +6,11 @@ Total::Total(QWidget *parent) :
     ui(new Ui::Total)
 {
     ui->setupUi(this);
+    QPixmap bkgnd("C:\\Users\\Valeria\\Documents\\LearnProgramming\\back.jpg");
+        bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+        QPalette palette;
+        palette.setBrush(QPalette::Background, bkgnd);
+        this->setPalette(palette);
 }
 
 Total::~Total()
@@ -28,10 +33,18 @@ void Total::makeTable()
 
     ui ->tableRes ->setRowCount(4);
     ui ->tableRes ->setColumnCount(2);
+    ui ->tableRes ->setColumnWidth(0, 433);
+    ui ->tableRes ->setColumnWidth(1, 432);
+    ui ->tableRes ->setRowHeight(0, 120);
+    ui ->tableRes ->setRowHeight(1, 120);
+    ui ->tableRes ->setRowHeight(2, 118);
+    ui ->tableRes ->setRowHeight(3, 119);
+    ui ->tableRes ->setHorizontalHeaderLabels(QStringList() << "The lecture" << "Your mark");
 
     for (int i = 1; i < 5; ++i)
     {
         QTableWidgetItem * item = new QTableWidgetItem ("Lecture " + tr("%1").arg(i));
+        item ->setTextAlignment(Qt::AlignCenter);
         ui ->tableRes ->setItem(i - 1, 0, item);
     }
 
@@ -56,10 +69,12 @@ void Total::makeTable()
             }
             all += mark;
             QTableWidgetItem * item = new QTableWidgetItem (tr("%1").arg(mark));
+            item ->setTextAlignment(Qt::AlignCenter);
             ui ->tableRes ->setItem(count, 1, item);
             count ++;
         }
-        ui ->res ->setText("<h3 align = \"center\">Your mark is: " + tr("%1").arg(all / 4) + "</h3>");
+        all /= 4;
+        ui ->res ->setText("<font color = \"#ffffff\"><h1 align = \"center\">Your total mark is: " + tr("%1").arg(all) + "</h3></font>");
     }
 }
 
@@ -67,6 +82,13 @@ void Total::makeTable()
 
 void Total::on_dowload_clicked()
 {
+    QFile file("C:\\Users\\Valeria\\Documents\\LearnProgramming\\pech.txt");
+    QString image;
+    if (file.open(QIODevice::ReadOnly))
+    {
+        image = file.readAll();
+        file.close();
+    }
     QString html = "<h1 style=\"text-align: center;\"><span style=\"font-family: \'times new roman\', times;\">CERTIFICATE</span></h1>"
             "<p style=\"text-align: left;\">&nbsp;</p>"
             "<p style=\"text-align: left;\">This is to certify that</p>"
@@ -74,9 +96,7 @@ void Total::on_dowload_clicked()
             "<p style=\"text-align: left;\">has successfully complited</p>"
             "<p style=\"text-align: left;\"><strong><span style=\"font-size: 14pt;\">C++ cours about arrays</span></strong></p>"
             "<p style=\"text-align: left;\"><span style=\"font-size: 11pt;\">whith the total mark</span></p>"
-            "<p style=\"text-align: left;\"><strong><span style=\"font-size: 14pt;\">" + QString::number(all) + "</span></strong></p>"
-            "<p style=\"text-align: left;\"><code></code></p>";
-            //"<p style=\"text-align: left;\"><span style=\"font-size: 11pt;\"><!-- pagebreak --></span></p>";
+            "<p style=\"text-align: left;\"><strong><span style=\"font-size: 14pt;\">" + QString::number(all) + "</span></strong></p>"  + image;
     QTextDocument document;
     document.setHtml(html);
     QPrinter printer;

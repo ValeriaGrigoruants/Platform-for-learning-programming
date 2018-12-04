@@ -1,0 +1,4 @@
+The syntax of the array of 3 per 5 elements of type int is arr[3][4]
+	Wrong: 4
+	Right: 5
+
